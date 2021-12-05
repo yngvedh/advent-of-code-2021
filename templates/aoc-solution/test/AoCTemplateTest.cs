@@ -1,3 +1,4 @@
+using AoC.AocTemplate;
 using FluentAssertions;
 using System;
 using Xunit;
@@ -12,21 +13,21 @@ namespace AoC.AoCTemplate.Test
         [Fact]
         public void ShouldParseCorrectly()
         {
-            var parsedData = new AoCTemplate().Parse(sampleInput);
+            var parsedData = Program.Parse(sampleInput);
             parsedData.Should().BeEquivalentTo(sampleData);
         }
 
         [Fact]
         public void ShouldFindSolutionForPart1Sample()
         {
-            var solution = new AoCTemplate().SolvePart1(sampleData);
+            var solution = Program.SolvePart1(sampleData);
             solution.Should().Be(127);
         }
 
         [Fact]
         public void ShouldFindSolutionForPart2Sample()
         {
-            var solution = new AoCTemplate().SolvePart2(sampleData);
+            var solution = Program.SolvePart2(sampleData);
             solution.Should().Be(62);
         }
     }
