@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Yngve Devik Hammersland",
+    "classifications": ["Advent of Code Solution"],
+    "identity": "AoC.SolutionTemplate.CSharp",
+    "name": "Advent of Code Solution with Console and Test projects",
+    "shortName": "aoc-solution",
+    "sourceName": "AoCTemplate",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}
