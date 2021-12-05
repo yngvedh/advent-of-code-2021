@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>AoC.Utility</PackageId>
+    <Version>1.4.5</Version>
+    <Authors>Yngve Devik Hammersland</Authors>
+    <Title>AoC.Utility</Title>
+    <PackageDescription>A Utility library for Advent of Code solutios. Contains extensions to Linq, helpers and such.</PackageDescription>
+
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
