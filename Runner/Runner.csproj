@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>AoC.Runner</PackageId>
-    <Version>3.0.5</Version>
+    <Version>3.0.9</Version>
     <Authors>Yngve Devik Hammersland</Authors>
     <Title>AoC.Runner</Title>
     <PackageDescription>A Runner for Advent of Code solutios. Import this, implement ISolver and go to town.</PackageDescription>

@@ -11,6 +11,10 @@ namespace AoC.Runner;
  
 public record AoCClientConfig(string AoCSession);
 
+public class AoCClientException : Exception
+{
+    public AoCClientException(string message) : base(message) {}
+}
 
 public class AoCClient
 {
@@ -42,10 +46,19 @@ public class AoCClient
 
     public async Task<string[]> DoGetPuzzleInput(int day)
     {
-        var inputUrl = $"https://adventofcode.com/2020/day/{day}/input";
+        var inputUrl = $"https://adventofcode.com/2021/day/{day}/input";
+        _logger.LogDebug("Input url: {InputUrl}", inputUrl);
         var response = await _client.GetAsync(inputUrl);
-        var content = await response.Content.ReadAsStringAsync();
-        return content.Split(new string[] {"\r\n", "\n"}, StringSplitOptions.None);
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            return content.Split(new string[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+        }
+        else
+        {
+            _logger.LogError("Error downloading input file, http status was {HttpStatus}", response.StatusCode);
+            throw new AoCClientException($"Error downloading input file, http status was {(int)response.StatusCode}.");
+        }
     }
 }
 
@@ -53,7 +66,7 @@ public class AoCHttpClientHandler : HttpClientHandler
 {
     public AoCHttpClientHandler(AoCClientConfig config, ILogger logger)
     {
-        logger.LogInformation("Using adventofcode.com session: {Session}", config.AoCSession);
+        logger.LogDebug("Using adventofcode.com session: {Session}...", config.AoCSession.Substring(0, 15));
 
         CookieContainer = new CookieContainer().WithSession(config.AoCSession);
     }
@@ -82,6 +95,7 @@ public static class AoCClientConfigurationExtensions
             .AddSingleton<AoCHttpClientHandler>()
             .AddHttpClient<AoCClient>()
                 .ConfigurePrimaryHttpMessageHandler<AoCHttpClientHandler>();
+                
 
         return serviceCollection;
     }

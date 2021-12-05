@@ -64,7 +64,7 @@ public class Solver<T> where T : notnull
         WriteSolution(1, solution1);
 
         var solution2 = part2Solver(input);
-        WriteSolution(1, solution2);
+        WriteSolution(2, solution2);
     }
 
     private void WriteSolution(int part, long? res)
