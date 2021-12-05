@@ -16,7 +16,7 @@ function Newest-Package($paths) {
         where { $_.Name -match "AoC\.$ProjectName\.\d+\.\d+\.\d+.nupkg" } |
         Select-Object -Property FullName, @{
             Name = 'Version';
-            Expression = { [version]$($_.Name | Select-String -Pattern "Aoc.Runner.(\d+.\d+.\d+).nupkg").Matches.Groups[1].ToString() }
+            Expression = { [version]$($_.Name | Select-String -Pattern "Aoc.$ProjectName.(\d+.\d+.\d+).nupkg").Matches.Groups[1].ToString() }
         } |
         Sort-Object -Descending -Property 'Version'
 
