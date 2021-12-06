@@ -455,3 +455,6 @@ $RECYCLE.BIN/
 
 # Don't store the nuget config in git
 nuget.config
+
+# Puzzle input
+input_day*.txt
