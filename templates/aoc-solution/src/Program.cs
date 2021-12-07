@@ -11,7 +11,7 @@ public static class Program
     public static async Task Main(string[] args) =>
         await Driver.RunSolver(0, Parse, SolvePart1, SolvePart2);
 
-    public static Placeholder Parse(string[] args)
+    public static Placeholder Parse(string[] lines)
         => throw new NotImplementedException();
 
     public static long? SolvePart1(Placeholder input)
