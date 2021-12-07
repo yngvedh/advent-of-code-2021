@@ -1,4 +1,4 @@
-using AoC.AocTemplate;
+using AoC.AoCTemplate;
 using FluentAssertions;
 using System;
 using Xunit;
