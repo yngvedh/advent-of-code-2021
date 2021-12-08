@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AoC.AoCTemplate;
 
-public record Placeholder() {}
+public record Placeholder();
 
 public static class Program
 {
