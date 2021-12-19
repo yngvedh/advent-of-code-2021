@@ -77,7 +77,7 @@ function Test-Solution($name) {
 function AoC() {
     $action = $args[0]
     switch($action) {
-        "new" { New-Solution($args[1]) }
+        "new" { New-Solution($args[1]); Set-Current($args[1]) }
         "publish-lib" { Publish-Lib($args[1]) }
         "cur" { Set-Current($args[1]) }
         "build" { Build-Solution($args[1]) }
